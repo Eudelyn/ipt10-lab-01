@@ -53,6 +53,22 @@ if (isset($_FILES['audio_file']) && $_FILES['audio_file']['error'] === UPLOAD_ER
     }
 }
 
+    // Handle Image File
+    if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
+        $safe_image_name = str_replace(' ', '_', basename($_FILES['image_file']['name']));
+        $uploaded_image_file = $upload_directory . $safe_image_name;
+        $temporary_image = $_FILES['image_file']['tmp_name'];
+
+        if (move_uploaded_file($temporary_image, $uploaded_image_file)) {
+            $image_relative_path = $relative_path . $safe_image_name;
+            ?>
+                    <img src="<?php echo $image_relative_path; ?>" alt="Uploaded Image" width="400" />
+                    <?php
+        } else {
+            echo 'Failed to upload image file';
+        }
+    }
+
 echo '<pre>';
 var_dump($_FILES);
 exit;
