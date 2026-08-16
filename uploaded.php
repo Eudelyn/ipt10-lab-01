@@ -1,7 +1,7 @@
 <?php
 
 $upload_directory = getcwd() . '/uploads/';
-$relative_path = '/uploads/';
+$relative_path = 'uploads/';
 
 // Handle Text File
 if (isset($_FILES['text_file']) && $_FILES['text_file']['error'] === UPLOAD_ERR_OK) {
@@ -31,6 +31,25 @@ if (isset($_FILES['pdf_file']) && $_FILES['pdf_file']['error'] === UPLOAD_ERR_OK
         <?php
     } else {
         echo 'Failed to upload PDF file';
+    }
+}
+
+// Handle Audio File
+if (isset($_FILES['audio_file']) && $_FILES['audio_file']['error'] === UPLOAD_ERR_OK) {
+    $safe_audio_name = str_replace(' ', '_', basename($_FILES['audio_file']['name']));
+    $uploaded_audio_file = $upload_directory . $safe_audio_name;
+    $temporary_audio = $_FILES['audio_file']['tmp_name'];
+
+    if (move_uploaded_file($temporary_audio, $uploaded_audio_file)) {
+        $audio_relative_path = $relative_path . $safe_audio_name;
+        ?>
+        <audio controls>
+            <source src="<?php echo $audio_relative_path; ?>" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <?php
+    } else {
+        echo 'Failed to upload audio file';
     }
 }
 

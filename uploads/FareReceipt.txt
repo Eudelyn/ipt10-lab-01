@@ -1,0 +1,14 @@
+------------------------------
+         FARE RECEIPT
+------------------------------
+Passenger Name: Mikay Fowler
+Passenger Type: Student
+Pickup: From: Villa Rivera, San Francisco, Mabalacat, Pampanga, Central Luzon, 2010, Philippines
+Destination: To: MacArthur Highway, Ninabel Subdivision, Mabalacat, Pampanga, Central Luzon, 2010, Philippines
+Distance: 3 km
+Base Fare: ₱21.00
+Discount: 20% (₱4.20)
+------------------------------
+Total Fare (after discount): ₱16.80
+------------------------------
+Date: 11/19/2025 3:10:16 PM
