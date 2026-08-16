@@ -34,6 +34,25 @@ if (isset($_FILES['pdf_file']) && $_FILES['pdf_file']['error'] === UPLOAD_ERR_OK
     }
 }
 
+// Handle Video File
+if (isset($_FILES['video_file']) && $_FILES['video_file']['error'] === UPLOAD_ERR_OK) {
+    $safe_video_name = str_replace(' ', '_', basename($_FILES['video_file']['name']));
+    $uploaded_video_file = $upload_directory . $safe_video_name;
+    $temporary_video = $_FILES['video_file']['tmp_name'];
+
+    if (move_uploaded_file($temporary_video, $uploaded_video_file)) {
+        $video_relative_path = $relative_path . $safe_video_name;
+        ?>
+                <video width="500" controls>
+                    <source src="<?php echo $video_relative_path; ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <?php
+    } else {
+        echo 'Failed to upload video file';
+    }
+}
+
 // Handle Audio File
 if (isset($_FILES['audio_file']) && $_FILES['audio_file']['error'] === UPLOAD_ERR_OK) {
     $safe_audio_name = str_replace(' ', '_', basename($_FILES['audio_file']['name']));
@@ -53,21 +72,21 @@ if (isset($_FILES['audio_file']) && $_FILES['audio_file']['error'] === UPLOAD_ER
     }
 }
 
-    // Handle Image File
-    if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
-        $safe_image_name = str_replace(' ', '_', basename($_FILES['image_file']['name']));
-        $uploaded_image_file = $upload_directory . $safe_image_name;
-        $temporary_image = $_FILES['image_file']['tmp_name'];
+// Handle Image File
+if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
+    $safe_image_name = str_replace(' ', '_', basename($_FILES['image_file']['name']));
+    $uploaded_image_file = $upload_directory . $safe_image_name;
+    $temporary_image = $_FILES['image_file']['tmp_name'];
 
-        if (move_uploaded_file($temporary_image, $uploaded_image_file)) {
-            $image_relative_path = $relative_path . $safe_image_name;
-            ?>
-                    <img src="<?php echo $image_relative_path; ?>" alt="Uploaded Image" width="400" />
-                    <?php
-        } else {
-            echo 'Failed to upload image file';
-        }
+    if (move_uploaded_file($temporary_image, $uploaded_image_file)) {
+        $image_relative_path = $relative_path . $safe_image_name;
+        ?>
+        <img src="<?php echo $image_relative_path; ?>" alt="Uploaded Image" width="400" />
+        <?php
+    } else {
+        echo 'Failed to upload image file';
     }
+}
 
 echo '<pre>';
 var_dump($_FILES);
