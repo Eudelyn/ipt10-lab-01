@@ -88,6 +88,6 @@ if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ER
     }
 }
 
-echo '<pre>';
-var_dump($_FILES);
-exit;
+//echo '<pre>';
+//var_dump($_FILES);
+//exit;
