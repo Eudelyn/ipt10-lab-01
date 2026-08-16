@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+ 
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+ 
+.container img {
+    margin-bottom: 10px;
+}
+ 
+h2 {
+    color: #1e3c72;
+    margin-bottom: 25px;
+    font-size: 24px;
+    border-bottom: 2px solid #f0b90b;
+    padding-bottom: 12px;
+}
+ 
+/* Form layout */
+form {
+    text-align: left;
+}
+ 
+label {
+    display: block;
+    margin: 16px 0 6px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+ 
+input[type="text"],
+input[type="date"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+ 
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.15);
+    background-color: #fff;
+}
+ 
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+ 
+/* Radio buttons */
+.radio {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 6px 0;
+}
+ 
+.radio input[type="radio"] {
+    margin-right: 6px;
+    accent-color: #2a5298;
+}
+ 
+/* Buttons */
+input[type="submit"],
+input[type="reset"],
+button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+ 
+input[type="submit"] {
+    background-color: #2a5298;
+    color: #fff;
+    margin-left: 10px;
+}
+ 
+input[type="submit"]:hover {
+    background-color: #1e3c72;
+}
+ 
+input[type="reset"] {
+    background-color: #e0e0e0;
+    color: #333;
+}
+ 
+input[type="reset"]:hover {
+    background-color: #cccccc;
+}
+ 
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active {
+    transform: scale(0.97);
+}
+ 
+/* Summary page table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+ 
+th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+ 
+th {
+    width: 40%;
+    background-color: #f5f7fa;
+    color: #1e3c72;
+    font-weight: 600;
+}
+ 
+td {
+    color: #333;
+}
+ 
+/* Back button on summary page */
+a {
+    text-decoration: none;
+}
+ 
+a button {
+    background-color: #2a5298;
+    color: #fff;
+    margin-top: 20px;
+}
+ 
+a button:hover {
+    background-color: #1e3c72;
+}
